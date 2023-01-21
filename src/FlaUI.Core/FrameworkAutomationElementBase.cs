@@ -106,7 +106,7 @@ namespace FlaUI.Core
                 // throw new NotSupportedByFrameworkException();
                 // Dont throw an exception. This method is called by IsSupported so if the propertid is not supported 
                 // return false.
-                value = default(T);
+                value = default;
                 return false;
             }
 
@@ -116,7 +116,7 @@ namespace FlaUI.Core
                 var internalValue = InternalGetPropertyValue(property.Id, isCacheActive, false);
                 if (internalValue == Automation.NotSupportedValue)
                 {
-                    value = default(T);
+                    value = default;
                     return false;
                 }
                 value = property.Convert<T>(Automation, internalValue);
@@ -285,11 +285,17 @@ namespace FlaUI.Core
         /// <inheritdoc />
         public abstract void UnregisterTextEditTextChangedEventHandler(TextEditTextChangedEventHandlerBase eventHandler);
 
+        /// <inheritdoc />
         public abstract PatternId[] GetSupportedPatterns();
+        /// <inheritdoc />
         public abstract PropertyId[] GetSupportedProperties();
+        /// <inheritdoc />
         public abstract AutomationElement GetUpdatedCache();
+        /// <inheritdoc />
         public abstract AutomationElement[] GetCachedChildren();
+        /// <inheritdoc />
         public abstract AutomationElement GetCachedParent();
+        /// <inheritdoc />
         public abstract object GetCurrentMetadataValue(PropertyId targetId, int metadataId);
     }
 }

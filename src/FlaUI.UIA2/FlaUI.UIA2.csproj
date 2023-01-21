@@ -45,4 +45,8 @@
     <None Include="..\..\FlaUI.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FlaUI.Core\FlaUI.Core.csproj" />
+  </ItemGroup>
+
 </Project>
